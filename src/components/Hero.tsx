@@ -34,20 +34,22 @@ export const Hero: React.FC = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.06,
+        staggerChildren: 0.08,
       },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0, scale: 0.95 },
+    hidden: { y: 25, opacity: 0, scale: 0.96 },
     visible: {
       y: 0,
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1], // Custom premium ease-out
+        type: 'spring',
+        stiffness: 70,
+        damping: 15,
+        mass: 1,
       },
     },
   }
