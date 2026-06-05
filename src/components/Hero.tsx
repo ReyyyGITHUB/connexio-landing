@@ -89,16 +89,12 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
-      {/* Mountain Image Background with Linear Fading mask */}
-      <div className="absolute inset-x-0 top-0 h-[650px] pointer-events-none z-0 select-none overflow-hidden opacity-90">
+      {/* Mountain Image Background */}
+      <div className="absolute inset-x-0 top-0 h-[650px] pointer-events-none z-0 select-none overflow-hidden opacity-100">
         <img 
           src={mountainBg} 
           alt="Atmospheric Mountain Backdrop" 
-          className="w-full h-full object-cover object-top filter brightness-[0.4]"
-          style={{
-            maskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)'
-          }}
+          className="w-full h-full object-cover object-top filter brightness-[0.7] contrast-[1.1]"
         />
       </div>
 
