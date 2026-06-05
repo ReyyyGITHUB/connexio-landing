@@ -34,3 +34,25 @@ body {
 .clip-stand {
   clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
 }
+
+@keyframes textShine {
+  0% {
+    background-position: 120% center;
+  }
+  100% {
+    background-position: -20% center;
+  }
+}
+
+.text-shine {
+  background: linear-gradient(
+    90deg,
+    var(--color-ash) 20%,
+    var(--color-pure-white) 50%,
+    var(--color-ash) 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 5s linear infinite;
+}

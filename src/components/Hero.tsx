@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
   }
 
   const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0, scale: 0.98 },
+    hidden: { y: 20, opacity: 0, scale: 0.95 },
     visible: {
       y: 0,
       opacity: 1,
@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
           className="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight leading-[1.08] text-pure-white max-w-3xl"
           style={{ letterSpacing: '-0.035em' }}
         >
-          <span className="text-ash/60">Krea.ai</span> is the world's most powerful creative AI suite.
+          <span className="text-shine">Krea.ai</span> is the world's most powerful creative AI suite.
         </motion.h1>
 
         {/* Subheading */}
@@ -61,13 +61,13 @@ export const Hero: React.FC = () => {
         >
           <a
             href="#start"
-            className="inline-flex items-center justify-center text-sm font-semibold bg-pure-white text-obsidian px-6 py-3 rounded-full hover:bg-cloud transition-all duration-200 active:scale-[0.98]"
+            className="inline-flex items-center justify-center text-sm font-semibold bg-pure-white text-obsidian px-6 py-3 rounded-full hover:bg-cloud transition-[background-color,transform] duration-200 ease-out active:scale-[0.98]"
           >
             Start for free
           </a>
           <a
             href="#launch"
-            className="inline-flex items-center justify-center text-sm font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-6 py-3 rounded-full transition-all duration-200 active:scale-[0.98]"
+            className="inline-flex items-center justify-center text-sm font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-6 py-3 rounded-full transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
           >
             Launch App
           </a>
