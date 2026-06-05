@@ -100,19 +100,19 @@ export const Hero: React.FC = () => {
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05] text-pure-white max-w-3xl"
-          style={{ letterSpacing: '-0.04em' }}
+          className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[0.95] text-pure-white max-w-4xl"
+          style={{ letterSpacing: '-0.05em' }}
         >
           <span className="text-shine block">Connexio</span>
-          <span className="text-fog mt-2 block text-3xl sm:text-5xl md:text-6xl font-normal">Project-based Terminal Manager</span>
+          <span className="text-pearl/90 mt-3 block text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight">Project-based Terminal Manager</span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
           variants={itemVariants}
-          className="mt-6 text-sm sm:text-base text-ash max-w-lg font-normal leading-[1.45]"
+          className="mt-6 text-sm sm:text-base text-fog max-w-md font-normal leading-[1.5]"
         >
-          Organize terminals by project, not window. Persistent sessions, auto task runner, SSH manager, and built-in editor.
+          Organize terminals by project, not window. Built-in persistent sessions, auto task runner, SSH manager, and editor.
         </motion.p>
 
         {/* CTAs */}

@@ -47,12 +47,11 @@ body {
 .text-shine {
   background: linear-gradient(
     90deg,
-    var(--color-ash) 20%,
-    var(--color-pure-white) 50%,
-    var(--color-ash) 80%
+    var(--color-pure-white) 0%,
+    var(--color-pearl) 40%,
+    var(--color-ash) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textShine 5s linear infinite;
 }
