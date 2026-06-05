@@ -6,44 +6,101 @@ interface FeatureCard {
   title: string
   tag: string
   description: string
-  placeholderBg: string
+  contentMock: React.ReactNode
 }
 
 const features: FeatureCard[] = [
   {
     id: 1,
-    tag: 'Workspace',
+    tag: 'WORKSPACE',
     title: 'Project Workspace',
-    description: 'Organize your terminal environments by project dynamically with drag-and-drop groups.',
-    placeholderBg: 'from-zinc-900 to-black border border-iron/20'
+    description: 'Organize shell sessions by project scopes. Move workspaces across tab boundaries with absolute drag fluidity.',
+    contentMock: (
+      <div className="w-full font-mono text-[10px] text-fog/90 p-4 leading-normal select-none">
+        <div className="text-ash mb-2">// Active Workspace Configuration</div>
+        <div className="flex justify-between border-b border-iron/20 pb-1.5 mb-1.5">
+          <span>scope: "frontend-dashboard"</span>
+          <span className="text-[#0091ff]">ACTIVE</span>
+        </div>
+        <div className="text-ash">projects:</div>
+        <div className="pl-4 text-pure-white">- connexio-app [path: ~/dev/connexio]</div>
+        <div className="pl-4 text-ash">- connexio-landing [path: ~/dev/landing-page]</div>
+        <div className="mt-4 text-[9px] bg-charcoal p-1.5 border border-iron/30">
+          * Drag and drop headers to bind shell environments.
+        </div>
+      </div>
+    )
   },
   {
     id: 2,
-    tag: 'Sessions',
+    tag: 'SESSIONS',
     title: 'Persistent Sessions',
-    description: 'Keep your active shell tabs, directory histories, and runners active even after application restarts.',
-    placeholderBg: 'from-zinc-900 to-black border border-iron/20'
+    description: 'State preservation layer keeps active layouts, paths, and stdout history persistent after restarts.',
+    contentMock: (
+      <div className="w-full font-mono text-[10px] text-fog/90 p-4 leading-normal select-none">
+        <div className="text-ash mb-2">// Session State (Auto-save)</div>
+        <div className="text-pure-white">active_layout: "split-horizontal"</div>
+        <div className="text-[#0091ff]">restored_directories: 3</div>
+        <div className="text-ash">history_buffer: 5000 lines</div>
+        <div className="mt-4 flex gap-1.5">
+          <span className="bg-iron/30 px-2 py-0.5 border border-iron/20 text-[9px]">RESTORE_PREV_LAYOUT: YES</span>
+        </div>
+      </div>
+    )
   },
   {
     id: 3,
-    tag: 'Runner',
+    tag: 'RUNNER',
     title: 'Auto Task Runner',
-    description: 'Automatically detects package.json, Cargo.toml, pyproject.toml, and Makefile scripts for single-click execution.',
-    placeholderBg: 'from-zinc-900 to-black border border-iron/20'
+    description: 'Auto-scrapes scripts inside project scopes (package.json, Makefile, Cargo.toml) for single-action builds.',
+    contentMock: (
+      <div className="w-full font-mono text-[10px] text-fog/90 p-4 leading-normal select-none">
+        <div className="text-ash mb-2">// package.json scripts detected</div>
+        <div className="flex justify-between items-center bg-charcoal p-1.5 border border-iron/20 mb-1">
+          <span className="text-pure-white">"dev": "vite"</span>
+          <span className="text-ash text-[9px] px-1 border border-iron/30">RUN</span>
+        </div>
+        <div className="flex justify-between items-center bg-charcoal p-1.5 border border-iron/20 mb-1">
+          <span className="text-pure-white">"build": "tsc && vite build"</span>
+          <span className="text-ash text-[9px] px-1 border border-iron/30">RUN</span>
+        </div>
+        <div className="flex justify-between items-center bg-charcoal p-1.5 border border-iron/20">
+          <span className="text-pure-white">"lint": "eslint ."</span>
+          <span className="text-ash text-[9px] px-1 border border-iron/30">RUN</span>
+        </div>
+      </div>
+    )
   },
   {
     id: 4,
-    tag: 'Remote',
-    title: 'SSH Manager',
-    description: 'Secure authentication key manager to connect and manage remote server networks within the editor.',
-    placeholderBg: 'from-zinc-900 to-black border border-iron/20'
+    tag: 'REMOTE',
+    title: 'SSH Connection Manager',
+    description: 'Embedded remote node configuration manager for server connection states in single tab divisions.',
+    contentMock: (
+      <div className="w-full font-mono text-[10px] text-fog/90 p-4 leading-normal select-none">
+        <div className="text-ash mb-2">// SSH Configuration Store</div>
+        <div className="text-pure-white">Host target-production</div>
+        <div className="pl-4">HostName 142.250.190.46</div>
+        <div className="pl-4">User ubuntu</div>
+        <div className="pl-4">IdentityFile ~/.ssh/production.pem</div>
+        <div className="mt-3 text-[#0091ff] animate-pulse">● Ready to tunnel...</div>
+      </div>
+    )
   },
   {
     id: 5,
-    tag: 'Editor',
-    title: 'Built-in Code Editor',
-    description: 'Full code editor powered by CodeMirror 6 with live preview layouts side-by-side.',
-    placeholderBg: 'from-zinc-900 to-black border border-iron/20'
+    tag: 'EDITOR',
+    title: 'CodeMirror 6 Editor',
+    description: 'Full code editor layer with live compilation target visualization side-by-side inside active splits.',
+    contentMock: (
+      <div className="w-full font-mono text-[10px] text-fog/90 p-4 leading-normal select-none">
+        <div className="text-ash mb-2">// preview.tsx</div>
+        <div><span className="text-[#0091ff]">import</span> &#123; Workspace &#125; <span className="text-[#0091ff]">from</span> <span className="text-pearl">"./App"</span></div>
+        <div><span className="text-[#0091ff]">const</span> init = () =&gt; &#123;</div>
+        <div className="pl-4">console.log(<span className="text-pearl">"Connexio live editor active"</span>);</div>
+        <div>&#125;</div>
+      </div>
+    )
   }
 ]
 
@@ -55,43 +112,47 @@ export const FeaturesScroll: React.FC = () => {
   })
 
   // Horizontal translate calculation based on vertical scroll percentage
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-60%'])
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-52%'])
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-obsidian">
+    <section ref={targetRef} className="relative h-[300vh] bg-obsidian border-b border-iron/20 font-mono">
       {/* Sticky container matching viewport height */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden z-10">
-        <div className="max-w-[1440px] mx-auto px-6 w-full mb-8">
-          <span className="text-xs font-semibold tracking-widest text-ash uppercase">Features Gallery</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pure-white mt-1">Built for high-performance engineering.</h2>
+        <div className="max-w-[1440px] mx-auto px-6 w-full mb-12">
+          <span className="text-xs font-semibold tracking-widest text-ash">[ 02 / FEATURES ]</span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pure-white mt-2 uppercase font-suisse">
+            Built for high-performance terminal workflows.
+          </h2>
         </div>
 
-        {/* Horizontal scroll track */}
-        <div className="flex items-center">
-          <motion.div style={{ x }} className="flex gap-6 pl-6 pr-[20vw]">
+        {/* Horizontal scroll track with brutalist borders */}
+        <div className="flex items-center border-y border-iron/20 bg-charcoal/10 py-12">
+          <motion.div style={{ x }} className="flex gap-8 pl-6 pr-[25vw]">
             {features.map((feature) => (
               <div 
                 key={feature.id} 
-                className="w-[380px] sm:w-[450px] h-[500px] flex-shrink-0 rounded-3xl bg-gradient-to-b p-8 flex flex-col justify-between relative overflow-hidden group shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+                className="w-[380px] sm:w-[440px] h-[460px] flex-shrink-0 bg-obsidian border border-iron/20 p-6 flex flex-col justify-between relative overflow-hidden group"
               >
-                {/* Decorative spotlight hover effect */}
-                <div className="absolute inset-0 bg-radial from-pure-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                
-                {/* Visual Image Placeholder inside the card */}
-                <div className="w-full h-[220px] rounded-2xl bg-gradient-to-br from-charcoal to-graphite border border-iron/30 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-radial from-pure-white/[0.04] to-transparent" />
-                  <span className="text-xs font-medium text-ash uppercase tracking-wider">{feature.tag} Mockup</span>
+                {/* Visual Image / Code Mockup inside card */}
+                <div className="w-full h-[220px] bg-charcoal/30 border border-iron/20 flex flex-col justify-start relative overflow-hidden">
+                  <div className="w-full h-6 border-b border-iron/20 bg-obsidian/60 flex items-center px-3 justify-between">
+                    <span className="text-[9px] text-ash tracking-widest">MOCK_CONTENT://{feature.tag}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-iron/40" />
+                  </div>
+                  <div className="flex-1 flex items-center justify-center">
+                    {feature.contentMock}
+                  </div>
                 </div>
 
                 {/* Card Details */}
-                <div className="mt-6 flex flex-col items-start">
-                  <span className="px-3 py-1 rounded-full border border-iron/30 text-[10px] font-semibold tracking-wider text-fog uppercase bg-charcoal/40 mb-3 select-none">
-                    {feature.tag}
+                <div className="mt-4 flex flex-col items-start">
+                  <span className="text-[10px] font-semibold text-[#0091ff] tracking-widest mb-2">
+                    [ {feature.tag} ]
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-pure-white">
+                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-pure-white font-suisse uppercase">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-sm text-fog leading-[1.5] max-w-sm">
+                  <p className="mt-2 text-xs text-fog leading-[1.6] max-w-sm">
                     {feature.description}
                   </p>
                 </div>
@@ -103,3 +164,4 @@ export const FeaturesScroll: React.FC = () => {
     </section>
   )
 }
+

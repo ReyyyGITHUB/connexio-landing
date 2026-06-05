@@ -90,13 +90,13 @@ export const Hero: React.FC = () => {
   }
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
-      {/* Mountain Image Background (Full Hero Section height) */}
-      <div className="absolute inset-0 pointer-events-none z-0 select-none overflow-hidden opacity-100">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-20 px-6 overflow-hidden bg-obsidian border-b border-iron/20">
+      {/* Mountain Image Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 select-none overflow-hidden opacity-90">
         <img 
           src={mountainBg} 
           alt="Atmospheric Mountain Backdrop" 
-          className="w-full h-full object-cover object-top filter brightness-[0.7] contrast-[1.1]"
+          className="w-full h-full object-cover object-top filter brightness-[0.6] contrast-[1.15]"
           style={{
             maskImage: 'linear-gradient(to bottom, black 50%, transparent 98%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 98%)'
@@ -104,125 +104,139 @@ export const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Premium Cinematic Ambient Lighting & Glows */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Subtle top glow */}
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-gradient-to-b from-midnight via-midnight/20 to-transparent blur-[120px] opacity-80" />
-        
-        {/* High-end central spotlight */}
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60%] h-[40%] bg-radial from-pure-white/[0.03] to-transparent blur-[80px]" />
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl w-full flex flex-col items-center text-center mt-4"
+        className="relative z-10 max-w-[1440px] w-full flex flex-col items-start text-left mt-8 md:mt-12 font-mono"
       >
-        {/* Headline */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[0.95] text-pure-white max-w-4xl"
-          style={{ letterSpacing: '-0.05em' }}
+        {/* Monospace section tag line */}
+        <motion.div 
+          variants={itemVariants} 
+          className="text-xs text-fog flex items-center gap-2 mb-4 border border-iron/20 px-2.5 py-1 bg-charcoal/20 backdrop-blur-sm"
         >
-          <span className="text-shine block">Connexio</span>
-          <span className="text-pearl/90 mt-3 block text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight">Project-based Terminal Manager</span>
-        </motion.h1>
-
-        {/* Subheading */}
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 text-sm sm:text-base text-fog max-w-md font-normal leading-[1.5]"
-        >
-          Organize terminals by project, not window. Built-in persistent sessions, auto task runner, SSH manager, and editor.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 flex flex-row items-center gap-4 relative z-20"
-        >
-          {/* Download Dropdown Group */}
-          <div ref={dropdownRef} className="relative">
-            <div className="inline-flex items-center rounded-full bg-pure-white text-obsidian shadow-sm overflow-hidden transition-transform duration-200 active:scale-[0.98]">
-              <a
-                href={`#download-${detectedOS}`}
-                className="flex items-center gap-2 text-sm font-semibold pl-6 pr-4 py-3 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
-              >
-                {getOSLogo(detectedOS)}
-                <span>Download for {getOSLabel(detectedOS)}</span>
-              </a>
-              <button
-                onClick={() => setDownloadOpen(!downloadOpen)}
-                className="px-3 py-3 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
-                aria-label="Select OS"
-              >
-                <ChevronDown size={16} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-
-            {/* Dropdown Options */}
-            <AnimatePresence>
-              {downloadOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute top-full left-0 mt-2 w-56 bg-charcoal border border-iron/20 rounded-2xl p-2 shadow-2xl flex flex-col gap-1 z-50 text-left"
-                >
-                  <a
-                    href="#download-mac"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-fog hover:text-pure-white rounded-xl hover:bg-graphite transition-colors duration-150"
-                  >
-                    {appleSvg}
-                    <span>macOS (.dmg)</span>
-                  </a>
-                  <a
-                    href="#download-windows"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-fog hover:text-pure-white rounded-xl hover:bg-graphite transition-colors duration-150"
-                  >
-                    {windowsSvg}
-                    <span>Windows (.exe)</span>
-                  </a>
-                  <a
-                    href="#download-linux"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-fog hover:text-pure-white rounded-xl hover:bg-graphite transition-colors duration-150"
-                  >
-                    {linuxSvg}
-                    <span>Linux (.AppImage)</span>
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* GitHub CTA Button */}
-          <a
-            href="https://github.com/ReyyyGITHUB/connexio-landing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-6 py-3 rounded-full transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
-          >
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            <span>GitHub</span>
-          </a>
+          <span className="w-1.5 h-1.5 bg-[#0091ff] animate-pulse" />
+          <span>PROJECT-BASED TERMINAL WORKSPACE</span>
         </motion.div>
 
-        {/* Workspace Preview Image Container */}
+        {/* Asymmetrical Massive Title */}
+        <motion.h1
+          variants={itemVariants}
+          className="text-6xl sm:text-8xl md:text-[9.5rem] font-bold tracking-tighter leading-[0.85] text-pure-white max-w-5xl uppercase font-suisse"
+          style={{ letterSpacing: '-0.06em' }}
+        >
+          <span className="text-shine block">Connexio</span>
+          <span className="text-pearl/90 mt-2 block text-3xl sm:text-5xl md:text-6xl font-normal lowercase tracking-tight font-mono">
+            &lt;project-centric_terminal_runner /&gt;
+          </span>
+        </motion.h1>
+
+        {/* Info Grid Division */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-iron/20">
+          <motion.div variants={itemVariants} className="flex flex-col gap-2">
+            <span className="text-ash text-xs uppercase">[ 01 / PERSISTENCE ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+              Tabs, layout environments, and directory sessions survive application restarts automatically.
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="flex flex-col gap-2">
+            <span className="text-ash text-xs uppercase">[ 02 / AUTOMATION ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+              Auto-detects scripts from package.json, Makefile, Cargo.toml, pyproject.toml with single-click runner.
+            </p>
+          </motion.div>
+
+          {/* CTAs directly inside the third column */}
+          <motion.div variants={itemVariants} className="flex flex-col gap-4 justify-start">
+            <span className="text-ash text-xs uppercase">[ 03 / ACQUISITION ]</span>
+            <div className="flex flex-wrap gap-3 relative z-20">
+              <div ref={dropdownRef} className="relative">
+                <div className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden transition-transform duration-200 active:scale-[0.98]">
+                  <a
+                    href={`#download-${detectedOS}`}
+                    className="flex items-center gap-2 text-xs font-semibold pl-4 pr-3 py-2.5 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
+                  >
+                    {getOSLogo(detectedOS)}
+                    <span>GET FOR {getOSLabel(detectedOS).toUpperCase()}</span>
+                  </a>
+                  <button
+                    onClick={() => setDownloadOpen(!downloadOpen)}
+                    className="px-2 py-2.5 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
+                    aria-label="Select OS"
+                  >
+                    <ChevronDown size={14} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                <AnimatePresence>
+                  {downloadOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left"
+                    >
+                      <a
+                        href="#download-mac"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {appleSvg}
+                        <span>macOS (.dmg)</span>
+                      </a>
+                      <a
+                        href="#download-windows"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {windowsSvg}
+                        <span>Windows (.exe)</span>
+                      </a>
+                      <a
+                        href="#download-linux"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {linuxSvg}
+                        <span>Linux (.AppImage)</span>
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <a
+                href="https://github.com/ReyyyGITHUB/connexio-landing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-4 py-2.5 transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
+              >
+                <span>GITHUB</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Sharp-edged Widescreen Mockup Container */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 w-full max-w-5xl rounded-2xl border border-iron/20 bg-charcoal/50 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden group"
+          className="mt-16 w-full rounded-none border border-iron/20 bg-charcoal/50 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden group relative"
         >
+          {/* Subtle top indicator bar */}
+          <div className="w-full h-8 border-b border-iron/20 bg-obsidian/40 flex items-center px-4 justify-between select-none">
+            <span className="text-[10px] text-ash tracking-widest font-mono">CONNEXIO_WORKSPACE_ACTIVE</span>
+            <div className="flex gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-iron/40" />
+              <span className="w-2 h-2 rounded-full bg-iron/40" />
+              <span className="w-2 h-2 rounded-full bg-iron/40" />
+            </div>
+          </div>
           <img 
             src={heroImg} 
             alt="Connexio Workspace Preview" 
-            className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.01]" 
+            className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.005]" 
           />
         </motion.div>
       </motion.div>
