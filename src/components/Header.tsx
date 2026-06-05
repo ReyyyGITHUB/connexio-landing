@@ -41,17 +41,28 @@ export const Header: React.FC = () => {
         {/* Left: Brand Logo */}
         <div className="flex items-center gap-2 select-none justify-start">
           <a href="#" className="flex items-center gap-2.5 group">
-            {/* Custom C network connector logo */}
+            {/* Authentic Connexio logo */}
             <svg 
               className="w-6.5 h-6.5 text-pure-white transition-transform duration-200 group-hover:scale-[1.02]" 
-              viewBox="0 0 24 24" 
+              viewBox="0 0 512 512" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c4.1 0 7.6-2.5 9.1-6.1l-3.6-1.5c-.8 2.3-3 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c2.5 0 4.7 1.6 5.5 3.9l3.6-1.5C19.6 4.5 16.1 2 12 2z" 
-                fill="currentColor"
-              />
+              <rect x="32" y="32" width="448" height="448" rx="96" fill="currentColor" fillOpacity="0.06" stroke="currentColor" strokeWidth="24"/>
+              {/* Outer C shape */}
+              <path d="M310 140C220 140 150 200 150 256C150 312 220 372 310 372" stroke="currentColor" strokeWidth="36" strokeLinecap="round" />
+              {/* Inner terminal input prompt > */}
+              <path d="M225 210L275 256L225 302" stroke="currentColor" strokeWidth="28" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Terminal cursor _ */}
+              <line x1="290" y1="302" x2="335" y2="302" stroke="currentColor" strokeWidth="28" strokeLinecap="round" />
+              {/* Connector lines on the right */}
+              <path d="M360 256H380" stroke="#0091ff" strokeWidth="24" strokeLinecap="round" />
+              <path d="M380 256V180H410" stroke="#0091ff" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M380 256V332H410" stroke="#0091ff" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Nodes circles */}
+              <circle cx="410" cy="180" r="15" fill="#0091ff" />
+              <circle cx="410" cy="256" r="15" fill="#0091ff" />
+              <circle cx="410" cy="332" r="15" fill="#0091ff" />
             </svg>
             <span className="text-base font-semibold tracking-tight text-pure-white">Connexio</span>
           </a>

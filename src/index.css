@@ -68,9 +68,11 @@ body::before {
     90deg,
     var(--color-pure-white) 0%,
     var(--color-pearl) 40%,
-    var(--color-ash) 100%
+    var(--color-pure-white) 80%,
+    var(--color-pure-white) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: textShine 6s linear infinite;
 }
