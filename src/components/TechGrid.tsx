@@ -58,7 +58,7 @@ export const TechGrid: React.FC = () => {
         <div className="mb-24 text-center flex flex-col items-center">
           <div className="flex items-center gap-2 border border-iron/30 px-3 py-1.5 rounded-full bg-charcoal/50 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0091ff] animate-pulse" />
-            <span className="text-[10px] tracking-wider text-ash font-mono font-medium">SYSTEM_SPEC // MICRO_SPECS</span>
+            <span className="text-[10px] tracking-wider text-ash font-mono font-medium">SPECIFICATIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-pure-white font-suisse mt-6 max-w-2xl leading-tight">
             The invisible core powering your shell.
@@ -86,7 +86,7 @@ export const TechGrid: React.FC = () => {
               {/* Card Header */}
               <div className="flex justify-between items-center w-full font-mono">
                 <span className="text-[9px] text-ash/80 group-hover:text-[#0091ff] transition-colors duration-200 ease-premium font-semibold">
-                  SYS::{item.code}
+                  {item.code}
                 </span>
                 {item.metric && (
                   <span className="text-[9px] text-[#0091ff] bg-[#0091ff]/10 border border-[#0091ff]/20 px-2 py-0.5 rounded-sm font-medium">
@@ -108,8 +108,8 @@ export const TechGrid: React.FC = () => {
 
               {/* Card Footer */}
               <div className="flex justify-between items-center pt-2 border-t border-iron/5 font-mono text-[9px] text-ash/60">
-                <span>STATUS // ENGAGED</span>
-                <span>SYS_INIT_OK</span>
+                <span>Module Status</span>
+                <span>Active</span>
               </div>
             </div>
           ))}
@@ -119,9 +119,9 @@ export const TechGrid: React.FC = () => {
         <div className="w-full flex justify-between items-center mt-6 px-2 font-mono text-[10px] text-ash/60">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500/80 animate-ping inline-block" />
-            <span>ALL CORE MODULES OPERATIONAL</span>
+            <span>All systems operational</span>
           </div>
-          <span>SPEC_V2.1.0</span>
+          <span>v0.5.0</span>
         </div>
 
       </div>

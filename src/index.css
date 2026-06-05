@@ -31,6 +31,8 @@ body {
   color: var(--color-pure-white);
   overflow-x: hidden;
   position: relative;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Premium grid texture with fading mask */

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { Layout, History, Play, Server, Code2 } from 'lucide-react'
 
 interface FeatureCard {
   id: number
@@ -58,12 +59,23 @@ export const FeaturesScroll: React.FC = () => {
   // Horizontal translate calculation based on smooth progress
   const x = useTransform(smoothProgress, [0, 1], ['0%', '-52%'])
 
+  const getFeatureIcon = (tag: string) => {
+    switch (tag) {
+      case 'WORKSPACE': return <Layout size={18} />
+      case 'SESSIONS': return <History size={18} />
+      case 'RUNNER': return <Play size={18} />
+      case 'REMOTE': return <Server size={18} />
+      case 'EDITOR': return <Code2 size={18} />
+      default: return <Layout size={18} />
+    }
+  }
+
   return (
     <section id="features" ref={targetRef} className="relative h-[300vh] bg-obsidian border-b border-iron/20 font-mono">
       {/* Sticky container matching viewport height */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden z-10">
         <div className="max-w-[1440px] mx-auto px-6 w-full mb-12">
-          <span className="text-xs font-semibold tracking-widest text-ash">[ 02 / FEATURES ]</span>
+          <span className="text-xs font-semibold tracking-widest text-[#0091ff]">FEATURES</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pure-white mt-2 uppercase font-suisse">
             Built for high-performance terminal workflows.
           </h2>
@@ -85,7 +97,7 @@ export const FeaturesScroll: React.FC = () => {
                 {/* Pure Image Placeholder Container */}
                 <div className="w-full flex-1 bg-charcoal/30 border border-iron/20 flex flex-col justify-start relative overflow-hidden">
                   <div className="w-full h-6 border-b border-iron/20 bg-obsidian/60 flex items-center px-3 justify-between">
-                    <span className="text-[9px] text-[#0091ff] tracking-widest font-semibold">{feature.tag}_MOCK_PREVIEW</span>
+                    <span className="text-[9px] text-[#0091ff] tracking-widest font-semibold">{feature.tag}</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-iron/40" />
                   </div>
                   
@@ -94,9 +106,7 @@ export const FeaturesScroll: React.FC = () => {
                   
                   <div className="flex-1 flex flex-col items-center justify-center relative bg-radial from-charcoal/40 to-obsidian/90 p-8 text-center z-10">
                     <div className="w-12 h-12 rounded-none border border-iron/20 bg-obsidian/90 flex items-center justify-center text-[#0091ff] mb-4 shadow-[0_0_15px_rgba(0,145,255,0.05)] group-hover:border-[#0091ff]/50 group-hover:text-pure-white group-hover:scale-110 transition-all duration-300 ease-premium">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375 0 11-.75 0 .375 0 01.75 0z" />
-                      </svg>
+                      {getFeatureIcon(feature.tag)}
                     </div>
                     <span className="text-[10px] text-pure-white font-semibold uppercase tracking-wider mb-1">
                       {feature.title} Preview

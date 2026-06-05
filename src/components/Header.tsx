@@ -41,12 +41,11 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-4 select-none">
           <a href="#" className="flex items-center gap-2.5 group">
             <svg 
-              className="w-5 h-5 text-pure-white transition-transform duration-200 group-hover:scale-[1.02]" 
+              className="w-6 h-6 text-pure-white transition-transform duration-200 group-hover:scale-[1.02]" 
               viewBox="0 0 512 512" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect x="32" y="32" width="448" height="448" rx="96" fill="currentColor" fillOpacity="0.06" stroke="currentColor" strokeWidth="24"/>
               <path d="M310 140C220 140 150 200 150 256C150 312 220 372 310 372" stroke="currentColor" strokeWidth="36" strokeLinecap="round" />
               <path d="M225 210L275 256L225 302" stroke="currentColor" strokeWidth="28" strokeLinecap="round" strokeLinejoin="round" />
               <line x1="290" y1="302" x2="335" y2="302" stroke="currentColor" strokeWidth="28" strokeLinecap="round" />
@@ -63,10 +62,10 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Center: Nav links */}
-        <nav className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-xs text-fog hover:text-pure-white transition-colors">OVERVIEW</a>
-          <a href="#features" className="text-xs text-fog hover:text-pure-white transition-colors">FEATURES</a>
-          <a href="#tech-specs" className="text-xs text-fog hover:text-pure-white transition-colors">SPECS</a>
+        <nav className="hidden md:flex items-center gap-6 select-none">
+          <a href="#" className="text-xs text-fog hover:text-pure-white transition-colors duration-150 ease-premium">OVERVIEW</a>
+          <a href="#features" className="text-xs text-fog hover:text-pure-white transition-colors duration-150 ease-premium">FEATURES</a>
+          <a href="#tech-specs" className="text-xs text-fog hover:text-pure-white transition-colors duration-150 ease-premium">SPECS</a>
           
           <div ref={dropdownRef} className="relative">
             <button 
