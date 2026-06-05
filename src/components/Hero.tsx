@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
   }
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-32 px-6 overflow-hidden bg-obsidian border-b border-iron/20">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-20 px-6 overflow-hidden bg-obsidian border-b border-iron/20">
       {/* Mountain Image Background */}
       <div className="absolute inset-0 pointer-events-none z-0 select-none overflow-hidden opacity-90">
         <img 
@@ -108,107 +108,116 @@ export const Hero: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl w-full flex flex-col items-center text-center mt-4 font-suisse"
+        className="relative z-10 max-w-[1440px] w-full flex flex-col items-start text-left mt-8 md:mt-12 font-mono"
       >
         {/* Monospace section tag line */}
         <motion.div 
           variants={itemVariants} 
-          className="text-xs text-fog flex items-center gap-2 mb-6 border border-iron/20 px-3 py-1 bg-charcoal/20 backdrop-blur-sm rounded-full"
+          className="text-xs text-fog flex items-center gap-2 mb-4 border border-iron/20 px-2.5 py-1 bg-charcoal/20 backdrop-blur-sm"
         >
-          <span className="w-1.5 h-1.5 bg-[#0091ff] animate-pulse rounded-full" />
-          <span className="font-mono tracking-wider text-[10px]">PROJECT-BASED TERMINAL WORKSPACE</span>
+          <span className="w-1.5 h-1.5 bg-[#0091ff] animate-pulse" />
+          <span>PROJECT-BASED TERMINAL WORKSPACE</span>
         </motion.div>
 
-        {/* Massive Sans-serif Title */}
+        {/* Asymmetrical Massive Title */}
         <motion.h1
           variants={itemVariants}
-          className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[1.02] text-pure-white max-w-3xl"
-          style={{ letterSpacing: '-0.04em' }}
+          className="text-6xl sm:text-8xl md:text-[9.5rem] font-bold tracking-tighter leading-[0.85] text-pure-white max-w-5xl uppercase font-suisse"
+          style={{ letterSpacing: '-0.06em' }}
         >
           <span className="text-shine block">Connexio</span>
-          <span className="text-pearl mt-2 block text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight">
-            The project-based terminal manager.
+          <span className="text-pearl/90 mt-2 block text-3xl sm:text-5xl md:text-6xl font-normal lowercase tracking-tight font-mono">
+            &lt;project-centric_terminal_runner /&gt;
           </span>
         </motion.h1>
 
-        {/* Readable Subheading Description */}
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 text-base sm:text-lg text-fog max-w-xl font-normal leading-[1.5]"
-        >
-          Organize your terminals by project, not by window. Features built-in persistent sessions, automated task runners, SSH connection profiles, and side-by-side code editing.
-        </motion.p>
+        {/* Info Grid Division */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-iron/20">
+          <motion.div variants={itemVariants} className="flex flex-col gap-2">
+            <span className="text-ash text-xs uppercase">[ 01 / PERSISTENCE ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+              Tabs, layout environments, and directory sessions survive application restarts automatically.
+            </p>
+          </motion.div>
 
-        {/* Direct CTA Buttons under description */}
-        <motion.div 
-          variants={itemVariants} 
-          className="mt-8 flex flex-row items-center gap-4 relative z-20"
-        >
-          <div ref={dropdownRef} className="relative">
-            <div className="inline-flex items-center bg-pure-white text-obsidian overflow-hidden transition-transform duration-200 active:scale-[0.98] rounded-full">
+          <motion.div variants={itemVariants} className="flex flex-col gap-2">
+            <span className="text-ash text-xs uppercase">[ 02 / AUTOMATION ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+              Auto-detects scripts from package.json, Makefile, Cargo.toml, pyproject.toml with single-click runner.
+            </p>
+          </motion.div>
+
+          {/* CTAs directly inside the third column */}
+          <motion.div variants={itemVariants} className="flex flex-col gap-4 justify-start">
+            <span className="text-ash text-xs uppercase">[ 03 / ACQUISITION ]</span>
+            <div className="flex flex-wrap gap-3 relative z-20">
+              <div ref={dropdownRef} className="relative">
+                <div className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden transition-transform duration-200 active:scale-[0.98]">
+                  <a
+                    href={`#download-${detectedOS}`}
+                    className="flex items-center gap-2 text-xs font-semibold pl-4 pr-3 py-2.5 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
+                  >
+                    {getOSLogo(detectedOS)}
+                    <span>GET FOR {getOSLabel(detectedOS).toUpperCase()}</span>
+                  </a>
+                  <button
+                    onClick={() => setDownloadOpen(!downloadOpen)}
+                    className="px-2 py-2.5 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
+                    aria-label="Select OS"
+                  >
+                    <ChevronDown size={14} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                <AnimatePresence>
+                  {downloadOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left"
+                    >
+                      <a
+                        href="#download-mac"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {appleSvg}
+                        <span>macOS (.dmg)</span>
+                      </a>
+                      <a
+                        href="#download-windows"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {windowsSvg}
+                        <span>Windows (.exe)</span>
+                      </a>
+                      <a
+                        href="#download-linux"
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                      >
+                        {linuxSvg}
+                        <span>Linux (.AppImage)</span>
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
-                href={`#download-${detectedOS}`}
-                className="flex items-center gap-2 text-sm font-semibold pl-6 pr-4 py-3 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
+                href="https://github.com/ReyyyGITHUB/connexio-landing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-4 py-2.5 transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
               >
-                {getOSLogo(detectedOS)}
-                <span>Download for {getOSLabel(detectedOS)}</span>
+                <span>GITHUB</span>
               </a>
-              <button
-                onClick={() => setDownloadOpen(!downloadOpen)}
-                className="px-3 py-3 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
-                aria-label="Select OS"
-              >
-                <ChevronDown size={16} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
-              </button>
             </div>
-
-            <AnimatePresence>
-              {downloadOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-52 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left rounded-2xl"
-                >
-                  <a
-                    href="#download-mac"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
-                  >
-                    {appleSvg}
-                    <span>macOS (.dmg)</span>
-                  </a>
-                  <a
-                    href="#download-windows"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
-                  >
-                    {windowsSvg}
-                    <span>Windows (.exe)</span>
-                  </a>
-                  <a
-                    href="#download-linux"
-                    onClick={() => setDownloadOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
-                  >
-                    {linuxSvg}
-                    <span>Linux (.AppImage)</span>
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <a
-            href="https://github.com/ReyyyGITHUB/connexio-landing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-6 py-3 rounded-full transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
-          >
-            <span>GitHub</span>
-          </a>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Sharp-edged Widescreen Mockup Container */}
         <motion.div
