@@ -92,14 +92,14 @@ export const Hero: React.FC = () => {
       {/* Background Mountain Image & Premium Cinematic Ambient Lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[650px] pointer-events-none z-0 overflow-hidden select-none">
         {/* Mountain Image Background */}
-        <div className="absolute inset-0 opacity-[0.3] mix-blend-screen">
+        <div className="absolute inset-0 opacity-[0.7] z-0">
           <img 
             src={mountainBg} 
             alt="Atmospheric Mountain Backdrop" 
-            className="w-full h-full object-cover object-top mask-image-gradient"
+            className="w-full h-full object-cover object-top"
             style={{
-              maskImage: 'linear-gradient(to bottom, black 20%, transparent 90%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 90%)'
+              maskImage: 'linear-gradient(to bottom, black 30%, transparent 95%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 95%)'
             }}
           />
         </div>
