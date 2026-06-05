@@ -89,21 +89,21 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
-      {/* Background Mountain Image & Premium Cinematic Ambient Lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[650px] pointer-events-none z-0 overflow-hidden select-none">
-        {/* Mountain Image Background */}
-        <div className="absolute inset-0 opacity-[0.7] z-0">
-          <img 
-            src={mountainBg} 
-            alt="Atmospheric Mountain Backdrop" 
-            className="w-full h-full object-cover object-top"
-            style={{
-              maskImage: 'linear-gradient(to bottom, black 30%, transparent 95%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 95%)'
-            }}
-          />
-        </div>
+      {/* Mountain Image Background with Linear Fading mask */}
+      <div className="absolute inset-x-0 top-0 h-[650px] pointer-events-none z-0 select-none overflow-hidden opacity-90">
+        <img 
+          src={mountainBg} 
+          alt="Atmospheric Mountain Backdrop" 
+          className="w-full h-full object-cover object-top filter brightness-[0.4]"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)'
+          }}
+        />
+      </div>
 
+      {/* Premium Cinematic Ambient Lighting & Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[700px] pointer-events-none z-0 overflow-hidden">
         {/* Subtle top glow */}
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-gradient-to-b from-midnight via-midnight/20 to-transparent blur-[120px] opacity-80" />
         
