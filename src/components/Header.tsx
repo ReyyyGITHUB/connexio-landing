@@ -6,9 +6,9 @@ export const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b border-iron/20 bg-obsidian/75 backdrop-blur-md">
-      <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-6 h-16 grid grid-cols-3 items-center">
         {/* Left: Brand Logo */}
-        <div className="flex items-center gap-2 select-none">
+        <div className="flex items-center gap-2 select-none justify-start">
           <a href="#" className="flex items-center gap-2 group">
             {/* Achromatic premium custom K symbol */}
             <svg 
@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Center: Nav links */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center justify-center gap-6">
           <a 
             href="#app" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
@@ -88,7 +88,7 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Right: Download CTA button */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-end">
           <a 
             href="#download" 
             className="inline-flex items-center justify-center text-sm font-medium bg-pure-white text-obsidian px-5 py-2 rounded-full hover:bg-cloud transition-all duration-200 active:scale-[0.98]"
