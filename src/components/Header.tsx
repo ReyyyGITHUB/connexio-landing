@@ -68,28 +68,10 @@ export const Header: React.FC = () => {
           </div>
 
           <a 
-            href="#image" 
-            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
-          >
-            Image
-          </a>
-          <a 
-            href="#video" 
-            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
-          >
-            Video
-          </a>
-          <a 
             href="#upscaler" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
           >
             Upscaler
-          </a>
-          <a 
-            href="#api" 
-            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
-          >
-            API
           </a>
           <a 
             href="#pricing" 
@@ -98,26 +80,20 @@ export const Header: React.FC = () => {
             Pricing
           </a>
           <a 
-            href="#enterprise" 
+            href="#api" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
           >
-            Enterprise
+            API
           </a>
         </nav>
 
-        {/* Right: Auth buttons */}
-        <div className="flex items-center gap-3">
+        {/* Right: Download CTA button */}
+        <div className="flex items-center">
           <a 
-            href="#login" 
-            className="hidden sm:inline-flex items-center justify-center text-sm font-medium text-fog hover:text-pure-white px-4 py-2 rounded-full border border-iron/20 hover:border-pearl hover:bg-graphite/20 transition-all duration-200 active:scale-[0.98]"
-          >
-            Log In
-          </a>
-          <a 
-            href="#signup" 
+            href="#download" 
             className="inline-flex items-center justify-center text-sm font-medium bg-pure-white text-obsidian px-5 py-2 rounded-full hover:bg-cloud transition-all duration-200 active:scale-[0.98]"
           >
-            Sign up for free
+            Download
           </a>
         </div>
       </div>
