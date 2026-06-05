@@ -47,9 +47,9 @@ export const Hero: React.FC = () => {
       scale: 1,
       transition: {
         type: 'spring',
-        stiffness: 70,
-        damping: 15,
-        mass: 1,
+        stiffness: 110,
+        damping: 18,
+        mass: 0.8,
       },
     },
   }

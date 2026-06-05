@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export const Header: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
@@ -63,48 +64,55 @@ export const Header: React.FC = () => {
 
         {/* Center: Nav links */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#sessions" className="text-xs text-fog hover:text-pure-white transition-colors">SESSIONS</a>
-          <a href="#tasks" className="text-xs text-fog hover:text-pure-white transition-colors">TASKS</a>
-          <a href="#ssh" className="text-xs text-fog hover:text-pure-white transition-colors">SSH_MANAGER</a>
-          <a href="#editor" className="text-xs text-fog hover:text-pure-white transition-colors">EDITOR</a>
+          <a href="#" className="text-xs text-fog hover:text-pure-white transition-colors">OVERVIEW</a>
+          <a href="#features" className="text-xs text-fog hover:text-pure-white transition-colors">FEATURES</a>
+          <a href="#tech-specs" className="text-xs text-fog hover:text-pure-white transition-colors">SPECS</a>
           
           <div ref={dropdownRef} className="relative">
             <button 
               onClick={() => setDownloadOpen(!downloadOpen)}
-              className="flex items-center gap-1 text-xs text-fog hover:text-pure-white transition-colors"
+              className="flex items-center gap-1 text-xs text-fog hover:text-pure-white transition-colors duration-150 ease-premium"
             >
               <span>DOWNLOAD</span>
-              <ChevronDown size={12} className={`transition-transform ${downloadOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={12} className={`transition-transform duration-200 ease-premium ${downloadOpen ? 'rotate-180' : ''}`} />
             </button>
             
-            {downloadOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50">
-                <a 
-                  href="#download-mac" 
-                  onClick={() => setDownloadOpen(false)}
-                  className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors"
+            <AnimatePresence>
+              {downloadOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 8, scale: 0.96, x: "-50%" }}
+                  animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                  exit={{ opacity: 0, y: 6, scale: 0.96, x: "-50%" }}
+                  transition={{ type: "spring", stiffness: 380, damping: 26 }}
+                  className="absolute top-full left-1/2 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 rounded-lg transform-gpu"
                 >
-                  {appleSvg}
-                  <span>macOS (.dmg)</span>
-                </a>
-                <a 
-                  href="#download-windows" 
-                  onClick={() => setDownloadOpen(false)}
-                  className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors"
-                >
-                  {windowsSvg}
-                  <span>Windows (.exe)</span>
-                </a>
-                <a 
-                  href="#download-linux" 
-                  onClick={() => setDownloadOpen(false)}
-                  className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors"
-                >
-                  {linuxSvg}
-                  <span>Linux (.AppImage)</span>
-                </a>
-              </div>
-            )}
+                  <a 
+                    href="#download-mac" 
+                    onClick={() => setDownloadOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
+                  >
+                    {appleSvg}
+                    <span>macOS (.dmg)</span>
+                  </a>
+                  <a 
+                    href="#download-windows" 
+                    onClick={() => setDownloadOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
+                  >
+                    {windowsSvg}
+                    <span>Windows (.exe)</span>
+                  </a>
+                  <a 
+                    href="#download-linux" 
+                    onClick={() => setDownloadOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
+                  >
+                    {linuxSvg}
+                    <span>Linux (.AppImage)</span>
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </nav>
 
@@ -112,7 +120,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-end">
           <a 
             href="#download" 
-            className="text-xs font-semibold text-pure-white hover:text-obsidian border border-pure-white px-4 py-1.5 hover:bg-pure-white transition-colors duration-150"
+            className="text-xs font-semibold text-pure-white hover:text-obsidian border border-pure-white px-4 py-1.5 hover:bg-pure-white transition-colors duration-200 ease-premium"
           >
             GET APP
           </a>

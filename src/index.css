@@ -77,3 +77,40 @@ body::before {
   -webkit-text-fill-color: transparent;
   animation: textShine 6s linear infinite;
 }
+
+/* Premium Motion Easing & Transitions */
+.ease-premium {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-scale-premium:hover {
+    transform: scale(1.02);
+  }
+  .hover-translate-premium:hover {
+    transform: translateX(4px);
+  }
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+
