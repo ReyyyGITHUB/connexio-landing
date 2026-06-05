@@ -88,8 +88,14 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
-      {/* Cinematic ambient lighting background overlay */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[600px] bg-gradient-to-b from-midnight via-obsidian/40 to-transparent pointer-events-none z-0" />
+      {/* Premium Cinematic Ambient Lighting & Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[700px] pointer-events-none z-0 overflow-hidden">
+        {/* Subtle top glow */}
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-gradient-to-b from-midnight via-midnight/20 to-transparent blur-[120px] opacity-80" />
+        
+        {/* High-end central spotlight */}
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60%] h-[40%] bg-radial from-pure-white/[0.03] to-transparent blur-[80px]" />
+      </div>
 
       <motion.div
         variants={containerVariants}
