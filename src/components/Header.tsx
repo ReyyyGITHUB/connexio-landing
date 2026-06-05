@@ -91,7 +91,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-end">
           <a 
             href="#download" 
-            className="inline-flex items-center justify-center text-sm font-medium bg-pure-white text-obsidian px-5 py-2 rounded-full hover:bg-cloud transition-all duration-200 active:scale-[0.98]"
+            className="inline-flex items-center justify-center text-sm font-medium bg-pure-white text-obsidian px-5 py-2 rounded-full hover:bg-cloud transition-[background-color,transform] duration-200 ease-out active:scale-[0.98]"
           >
             Download
           </a>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Variants } from 'framer-motion'
-import { Play, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import heroImg from '@/assets/hero.png'
 
 export const Hero: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
@@ -190,62 +191,16 @@ export const Hero: React.FC = () => {
           </a>
         </motion.div>
 
-        {/* Premium Studio Monitor / Device Mockup Container */}
+        {/* Workspace Preview Image Container */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 w-full max-w-3xl relative flex flex-col items-center group"
+          className="mt-16 w-full max-w-5xl rounded-2xl border border-iron/20 bg-charcoal/50 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden group"
         >
-          {/* Subtle backlighting glow behind monitor */}
-          <div className="absolute inset-0 bg-pure-white/[0.02] blur-[80px] rounded-full scale-75 group-hover:scale-90 transition-transform duration-500 ease-out" />
-
-          {/* Device Frame */}
-          <div className="relative w-full aspect-[16/10] bg-charcoal border-4 border-iron/30 rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden">
-            {/* Inner Workspace Screen Simulation */}
-            <div className="w-full h-full bg-obsidian flex flex-col p-3 text-left select-none relative">
-              {/* Screen Top Bar */}
-              <div className="flex items-center justify-between border-b border-iron/10 pb-2 mb-3">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-iron/40" />
-                  <span className="w-2 h-2 rounded-full bg-iron/40" />
-                  <span className="w-2 h-2 rounded-full bg-iron/40" />
-                </div>
-                <div className="text-[10px] font-medium text-ash uppercase tracking-wider">
-                  Krea Realtime Studio
-                </div>
-                <div className="w-6" />
-              </div>
-
-              {/* Workspace Content Canvas */}
-              <div className="flex-1 border border-iron/10 rounded-lg bg-midnight flex flex-col items-center justify-center relative overflow-hidden p-6">
-                {/* Simulated Glass Panel Inside Workspace */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-pure-white/[0.01] to-transparent pointer-events-none" />
-                
-                <h3 className="text-xl md:text-3xl font-medium tracking-tight text-fog mb-4 text-center">
-                  Let's create something
-                </h3>
-                
-                {/* Generation Card Grid preview */}
-                <div className="grid grid-cols-3 gap-3 w-full max-w-md mt-2">
-                  <div className="aspect-[4/3] bg-charcoal/80 border border-iron/20 rounded-lg p-2 flex flex-col justify-between hover:border-pearl/30 transition-colors duration-200">
-                    <span className="text-[9px] font-semibold text-ash uppercase">Generate</span>
-                    <Play size={12} className="text-fog" />
-                  </div>
-                  <div className="aspect-[4/3] bg-charcoal/80 border border-iron/20 rounded-lg p-2 flex flex-col justify-between hover:border-pearl/30 transition-colors duration-200">
-                    <span className="text-[9px] font-semibold text-ash uppercase">Enhance</span>
-                    <Play size={12} className="text-fog" />
-                  </div>
-                  <div className="aspect-[4/3] bg-charcoal/80 border border-iron/20 rounded-lg p-2 flex flex-col justify-between hover:border-pearl/30 transition-colors duration-200">
-                    <span className="text-[9px] font-semibold text-ash uppercase">3D Mesh</span>
-                    <Play size={12} className="text-fog" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* iMac Style Curved Stand Neck & Base */}
-          <div className="w-24 h-16 bg-gradient-to-b from-iron/50 to-iron/20 clip-stand -mt-0.5 border-x border-b border-iron/20" />
-          <div className="w-36 h-2 bg-iron/40 rounded-full -mt-1 shadow-md" />
+          <img 
+            src={heroImg} 
+            alt="Connexio Workspace Preview" 
+            className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.01]" 
+          />
         </motion.div>
       </motion.div>
     </section>
