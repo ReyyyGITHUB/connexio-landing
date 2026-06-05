@@ -113,10 +113,10 @@ export const Hero: React.FC = () => {
         {/* Monospace section tag line */}
         <motion.div 
           variants={itemVariants} 
-          className="text-xs text-fog flex items-center gap-2 mb-4 border border-iron/20 px-2.5 py-1 bg-charcoal/20 backdrop-blur-sm"
+          className="text-[10px] text-fog flex items-center gap-2 mb-4 border border-iron/20 px-2.5 py-1 bg-charcoal/20 backdrop-blur-sm tracking-wider"
         >
-          <span className="w-1.5 h-1.5 bg-[#0091ff] animate-pulse" />
-          <span>PROJECT-BASED TERMINAL WORKSPACE</span>
+          <span className="w-1.5 h-1.5 bg-[#0091ff] animate-pulse rounded-full" />
+          <span>Project-Based Terminal Workspace</span>
         </motion.div>
 
         {/* Asymmetrical Massive Title */}
@@ -126,43 +126,43 @@ export const Hero: React.FC = () => {
           style={{ letterSpacing: '-0.06em' }}
         >
           <span className="text-shine block">Connexio</span>
-          <span className="text-pearl/90 mt-2 block text-3xl sm:text-5xl md:text-6xl font-normal lowercase tracking-tight font-mono">
-            &lt;project-centric_terminal_runner /&gt;
+          <span className="text-pearl/90 mt-2 block text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight font-suisse lowercase">
+            the project-based terminal manager.
           </span>
         </motion.h1>
 
         {/* Info Grid Division */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-iron/20">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-iron/20 font-suisse">
           <motion.div variants={itemVariants} className="flex flex-col gap-2">
-            <span className="text-ash text-xs uppercase">[ 01 / PERSISTENCE ]</span>
-            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+            <span className="text-ash text-xs uppercase font-mono">[ 01 / Persistence ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-normal">
               Tabs, layout environments, and directory sessions survive application restarts automatically.
             </p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex flex-col gap-2">
-            <span className="text-ash text-xs uppercase">[ 02 / AUTOMATION ]</span>
-            <p className="text-sm text-fog leading-[1.5] max-w-xs font-mono">
+            <span className="text-ash text-xs uppercase font-mono">[ 02 / Automation ]</span>
+            <p className="text-sm text-fog leading-[1.5] max-w-xs font-normal">
               Auto-detects scripts from package.json, Makefile, Cargo.toml, pyproject.toml with single-click runner.
             </p>
           </motion.div>
 
           {/* CTAs directly inside the third column */}
-          <motion.div variants={itemVariants} className="flex flex-col gap-4 justify-start">
-            <span className="text-ash text-xs uppercase">[ 03 / ACQUISITION ]</span>
+          <motion.div variants={itemVariants} className="flex flex-col gap-4 justify-start font-suisse">
+            <span className="text-ash text-xs uppercase font-mono">[ 03 / Get Started ]</span>
             <div className="flex flex-wrap gap-3 relative z-20">
               <div ref={dropdownRef} className="relative">
-                <div className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden transition-transform duration-200 active:scale-[0.98]">
+                <div className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden transition-transform duration-200 active:scale-[0.98] rounded-full">
                   <a
                     href={`#download-${detectedOS}`}
-                    className="flex items-center gap-2 text-xs font-semibold pl-4 pr-3 py-2.5 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
+                    className="flex items-center gap-2 text-xs font-semibold pl-5 pr-3 py-2.5 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
                   >
                     {getOSLogo(detectedOS)}
-                    <span>GET FOR {getOSLabel(detectedOS).toUpperCase()}</span>
+                    <span>Download for {getOSLabel(detectedOS)}</span>
                   </a>
                   <button
                     onClick={() => setDownloadOpen(!downloadOpen)}
-                    className="px-2 py-2.5 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
+                    className="px-2.5 py-2.5 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
                     aria-label="Select OS"
                   >
                     <ChevronDown size={14} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
@@ -176,12 +176,12 @@ export const Hero: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left"
+                      className="absolute top-full left-0 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left rounded-2xl"
                     >
                       <a
                         href="#download-mac"
                         onClick={() => setDownloadOpen(false)}
-                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                        className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
                         {appleSvg}
                         <span>macOS (.dmg)</span>
@@ -189,7 +189,7 @@ export const Hero: React.FC = () => {
                       <a
                         href="#download-windows"
                         onClick={() => setDownloadOpen(false)}
-                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                        className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
                         {windowsSvg}
                         <span>Windows (.exe)</span>
@@ -197,7 +197,7 @@ export const Hero: React.FC = () => {
                       <a
                         href="#download-linux"
                         onClick={() => setDownloadOpen(false)}
-                        className="flex items-center gap-3 px-3 py-2 text-[10px] font-semibold text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150"
+                        className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
                         {linuxSvg}
                         <span>Linux (.AppImage)</span>
@@ -211,9 +211,9 @@ export const Hero: React.FC = () => {
                 href="https://github.com/ReyyyGITHUB/connexio-landing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-4 py-2.5 transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-pure-white bg-graphite/40 border border-iron/20 hover:border-pearl hover:bg-graphite/60 px-5 py-2.5 rounded-full transition-[background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
               >
-                <span>GITHUB</span>
+                <span>GitHub</span>
               </a>
             </div>
           </motion.div>
@@ -226,7 +226,7 @@ export const Hero: React.FC = () => {
         >
           {/* Subtle top indicator bar */}
           <div className="w-full h-8 border-b border-iron/20 bg-obsidian/40 flex items-center px-4 justify-between select-none">
-            <span className="text-[10px] text-ash tracking-widest font-mono">CONNEXIO_WORKSPACE_ACTIVE</span>
+            <span className="text-[10px] text-ash tracking-widest font-mono">connexio_workspace_active</span>
             <div className="flex gap-1.5">
               <span className="w-2 h-2 rounded-full bg-iron/40" />
               <span className="w-2 h-2 rounded-full bg-iron/40" />
