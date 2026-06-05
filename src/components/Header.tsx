@@ -1,89 +1,60 @@
-import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import React from 'react'
 
 export const Header: React.FC = () => {
-  const [featuresOpen, setFeaturesOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b border-iron/20 bg-obsidian/75 backdrop-blur-md">
       <div className="max-w-[1440px] mx-auto px-6 h-16 grid grid-cols-3 items-center">
         {/* Left: Brand Logo */}
         <div className="flex items-center gap-2 select-none justify-start">
-          <a href="#" className="flex items-center gap-2 group">
-            {/* Achromatic premium custom K symbol */}
+          <a href="#" className="flex items-center gap-2.5 group">
+            {/* Custom C network connector logo */}
             <svg 
-              className="w-7 h-7 text-pure-white transition-transform duration-200 group-hover:scale-[1.02]" 
+              className="w-6.5 h-6.5 text-pure-white transition-transform duration-200 group-hover:scale-[1.02]" 
               viewBox="0 0 24 24" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
               <path 
-                d="M4 4H8V12L14 4H19L11 12L19 20H14L8 12V20H4V4Z" 
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c4.1 0 7.6-2.5 9.1-6.1l-3.6-1.5c-.8 2.3-3 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c2.5 0 4.7 1.6 5.5 3.9l3.6-1.5C19.6 4.5 16.1 2 12 2z" 
                 fill="currentColor"
               />
             </svg>
+            <span className="text-base font-semibold tracking-tight text-pure-white">Connexio</span>
           </a>
         </div>
 
         {/* Center: Nav links */}
         <nav className="hidden md:flex items-center justify-center gap-6">
           <a 
-            href="#app" 
+            href="#sessions" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
           >
-            App
-          </a>
-          
-          <div 
-            className="relative"
-            onMouseEnter={() => setFeaturesOpen(true)}
-            onMouseLeave={() => setFeaturesOpen(false)}
-          >
-            <button 
-              className="flex items-center gap-1 text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
-            >
-              <span>Features</span>
-              <ChevronDown 
-                size={14} 
-                className={`transition-transform duration-200 ${featuresOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {/* Subtle Dropdown Panel */}
-            {featuresOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-charcoal border border-iron/20 rounded-xl p-2 shadow-2xl flex flex-col gap-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                <a 
-                  href="#feature-1" 
-                  className="px-3 py-2 text-xs font-medium text-fog hover:text-pure-white rounded-lg hover:bg-graphite transition-colors duration-150"
-                >
-                  Realtime Canvas
-                </a>
-                <a 
-                  href="#feature-2" 
-                  className="px-3 py-2 text-xs font-medium text-fog hover:text-pure-white rounded-lg hover:bg-graphite transition-colors duration-150"
-                >
-                  Studio Editor
-                </a>
-              </div>
-            )}
-          </div>
-
-          <a 
-            href="#upscaler" 
-            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
-          >
-            Upscaler
+            Sessions
           </a>
           <a 
-            href="#pricing" 
+            href="#tasks" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
           >
-            Pricing
+            Tasks
           </a>
           <a 
-            href="#api" 
+            href="#ssh" 
             className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
           >
-            API
+            SSH Manager
+          </a>
+          <a 
+            href="#editor" 
+            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
+          >
+            Editor
+          </a>
+          <a 
+            href="#docs" 
+            className="text-sm font-medium text-fog hover:text-pure-white transition-colors duration-150"
+          >
+            Docs
           </a>
         </nav>
 

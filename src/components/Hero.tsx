@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
   }
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-32 px-6 overflow-hidden bg-obsidian">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
       {/* Cinematic ambient lighting background overlay */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[600px] bg-gradient-to-b from-midnight via-obsidian/40 to-transparent pointer-events-none z-0" />
 
@@ -95,23 +95,24 @@ export const Hero: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl w-full flex flex-col items-center text-center mt-12"
+        className="relative z-10 max-w-4xl w-full flex flex-col items-center text-center mt-4"
       >
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight leading-[1.08] text-pure-white max-w-3xl"
-          style={{ letterSpacing: '-0.035em' }}
+          className="text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05] text-pure-white max-w-3xl"
+          style={{ letterSpacing: '-0.04em' }}
         >
-          <span className="text-shine">Krea.ai</span> is the world's most powerful creative AI suite.
+          <span className="text-shine block">Connexio</span>
+          <span className="text-fog mt-2 block text-3xl sm:text-5xl md:text-6xl font-normal">Project-based Terminal Manager</span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
           variants={itemVariants}
-          className="mt-6 text-base sm:text-lg text-fog max-w-xl font-normal leading-[1.4]"
+          className="mt-6 text-sm sm:text-base text-ash max-w-lg font-normal leading-[1.45]"
         >
-          Generate, enhance, and edit images, videos, or 3D meshes for free with AI.
+          Organize terminals by project, not window. Persistent sessions, auto task runner, SSH manager, and built-in editor.
         </motion.p>
 
         {/* CTAs */}
