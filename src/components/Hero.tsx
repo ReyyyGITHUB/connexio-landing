@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import heroImg from '@/assets/hero.png'
+import mountainBg from '@/assets/mountain_bg.png'
 
 export const Hero: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
@@ -88,8 +89,21 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 px-6 overflow-hidden bg-obsidian">
-      {/* Premium Cinematic Ambient Lighting & Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[700px] pointer-events-none z-0 overflow-hidden">
+      {/* Background Mountain Image & Premium Cinematic Ambient Lighting */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[650px] pointer-events-none z-0 overflow-hidden select-none">
+        {/* Mountain Image Background */}
+        <div className="absolute inset-0 opacity-[0.3] mix-blend-screen">
+          <img 
+            src={mountainBg} 
+            alt="Atmospheric Mountain Backdrop" 
+            className="w-full h-full object-cover object-top mask-image-gradient"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 20%, transparent 90%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 90%)'
+            }}
+          />
+        </div>
+
         {/* Subtle top glow */}
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-gradient-to-b from-midnight via-midnight/20 to-transparent blur-[120px] opacity-80" />
         
