@@ -1,5 +1,5 @@
 ---
-name: motion-design
+name: Mas Moses - Motion Designer
 description: >
   Applies motion design principles to create emotionally-driven, technically sound animations and transitions.
   Provides timing, easing, choreography, and Disney animation principles adapted for UI.
@@ -68,4 +68,3 @@ Before creating any animation:
 - [state-feedback.md](patterns/state-feedback.md) — Success, error, loading, hover
 - [ambient-continuous.md](patterns/ambient-continuous.md) — Looping, breathing, parallax
 - [multi-element.md](patterns/multi-element.md) — Stagger + choreography recipes
-

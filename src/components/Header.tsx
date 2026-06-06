@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Download } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export const Header: React.FC = () => {
@@ -119,9 +119,10 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-end">
           <a 
             href="#download" 
-            className="text-xs font-semibold text-pure-white hover:text-obsidian border border-pure-white px-4 py-1.5 hover:bg-pure-white transition-colors duration-200 ease-premium"
+            className="text-xs font-semibold text-pure-white hover:text-obsidian border border-pure-white px-4 py-1.5 hover:bg-pure-white transition-colors duration-200 ease-premium flex items-center gap-1.5"
           >
-            GET APP
+            <Download size={12} className="stroke-[2.5]" />
+            <span>GET APP</span>
           </a>
         </div>
       </div>
