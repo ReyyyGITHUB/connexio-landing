@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Connexio Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The official, high-performance landing page for **Connexio**—the cross-platform project-based terminal manager for developers.
 
-Currently, two official plugins are available:
+Built with **React 19**, **Vite**, and **Tailwind CSS v4**, featuring immersive animations via **GSAP**, **Framer Motion**, and **Lenis** smooth scroll.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- **Dynamic Hero Section**: Multi-platform auto-detect CTA pointing to specific OS installers (Windows, macOS, Linux).
+- **Interactive Feature Showcase**: Tabbed scroll-linked animation component presenting the core features of Connexio.
+- **Tech Grid**: Clean showcase of the underlying application architecture (Electron, React, xterm.js).
+- **Smooth Scroll**: Integrated with Lenis for responsive and fluid inertia scrolling.
+- **Optimized Assets**: Replaced heavy GIFs with lightweight HTML5 videos and optimized assets for better Lighthouse scores.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19 + TypeScript
+- **Bundler**: Vite 8
+- **Styling**: Tailwind CSS v4 + PostCSS
+- **Animations**: GSAP, Framer Motion
+- **Scroll**: Lenis Smooth Scroll
+- **Icons**: Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+connexio-landing/
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx           # Floating responsive navbar
+│   │   ├── Hero.tsx             # Call to Action & OS detection
+│   │   ├── FeaturesScroll.tsx   # Interactive tabbed feature preview
+│   │   ├── TechGrid.tsx         # App stack & specs grid
+│   │   └── Footer.tsx           # Deep footer with utility links
+│   ├── assets/                  # Images, videos & static assets
+│   ├── constants.ts             # Links, GitHub release paths & configurations
+│   ├── App.tsx                  # Main layout & Lenis scroll initializer
+│   └── index.css                # Global Tailwind directives & styling tokens
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Development Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
+- Node.js 18+
+- npm 9+
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yandanp/connexio-landing.git
+cd connexio-landing
+
+# Install dependencies
+npm install
 ```
+
+### Commands
+- Run development server: `npm run dev`
+- Build for production: `npm run build`
+- Preview production build: `npm run preview`
+- Lint code: `npm run lint`
+
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
