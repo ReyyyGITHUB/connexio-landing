@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
             </svg>
             <span className="text-sm font-semibold tracking-tight text-pure-white font-suisse">Connexio</span>
           </a>
-          <span className="text-[10px] px-1.5 py-0.5 border border-iron/30 text-ash rounded uppercase select-none">v0.5.0</span>
+          <span className="text-[10px] px-1.5 py-0.5 border border-iron/30 text-ash rounded uppercase select-none">v0.2.3</span>
         </div>
 
         {/* Center: Nav links */}

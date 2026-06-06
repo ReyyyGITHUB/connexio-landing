@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { Layout, History, Play, Server, Code2 } from 'lucide-react'
+import { Layout, History, Play, Server, GitBranch } from 'lucide-react'
 
 interface FeatureCard {
   id: number
@@ -36,9 +36,9 @@ const features: FeatureCard[] = [
   },
   {
     id: 5,
-    tag: 'EDITOR',
-    title: 'CodeMirror 6 Editor',
-    placeholderText: 'Code Split-Pane Workspace'
+    tag: 'GIT',
+    title: 'Git Status Tracker',
+    placeholderText: 'Header Branch & Ahead/Behind State'
   }
 ]
 
@@ -65,7 +65,7 @@ export const FeaturesScroll: React.FC = () => {
       case 'SESSIONS': return <History size={18} />
       case 'RUNNER': return <Play size={18} />
       case 'REMOTE': return <Server size={18} />
-      case 'EDITOR': return <Code2 size={18} />
+      case 'GIT': return <GitBranch size={18} />
       default: return <Layout size={18} />
     }
   }

@@ -15,9 +15,9 @@ const techFeatures: TechItem[] = [
     metric: 'latency < 8ms'
   },
   {
-    code: 'TS_02',
-    label: 'Tailscale tunnels',
-    desc: 'Auto-generates secure sharing endpoints using local and private Tailscale connection states.',
+    code: 'PC_02',
+    label: 'Pinned commands',
+    desc: 'Save and trigger favorite or complex shell command presets per project workspace or globally in one click.',
     metric: 'active'
   },
   {
@@ -27,16 +27,16 @@ const techFeatures: TechItem[] = [
     metric: 'μs precision'
   },
   {
-    code: 'RPC_04',
-    label: 'Discord presence',
-    desc: 'Broadens developer workflow states with configurable Discord Rich Presence indicators dynamically.',
-    metric: 'rich-rpc'
+    code: 'GIT_04',
+    label: 'Git integration',
+    desc: 'Sync displays active branch, uncommitted modified count, and ahead/behind commit statuses in the header.',
+    metric: 'real-time'
   },
   {
-    code: 'WEB_05',
-    label: 'Live web previews',
-    desc: 'Launches sandboxed web views directly inside target tabs alongside runners for active testing loops.',
-    metric: 'isolated port'
+    code: 'SSH_05',
+    label: 'SSH manager',
+    desc: 'Dedicated SSH connection presets supporting key-based and password authentication per workspace.',
+    metric: 'encrypted'
   },
   {
     code: 'UI_06',
@@ -121,7 +121,7 @@ export const TechGrid: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-emerald-500/80 animate-ping inline-block" />
             <span>All systems operational</span>
           </div>
-          <span>v0.5.0</span>
+          <span>v0.2.3</span>
         </div>
 
       </div>
