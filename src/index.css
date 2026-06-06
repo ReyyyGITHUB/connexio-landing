@@ -78,6 +78,7 @@ body::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textShine 6s linear infinite;
+  will-change: background-position;
 }
 
 /* Premium Motion Easing & Transitions */

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import heroImg from '@/assets/hero.png'
-import mountainBg from '@/assets/mountain_bg.png'
+import heroImg from '@/assets/hero.webp'
+import mountainBg from '@/assets/mountain_bg.webp'
 
 export const Hero: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
@@ -96,6 +96,8 @@ export const Hero: React.FC = () => {
         <img 
           src={mountainBg} 
           alt="Atmospheric Mountain Backdrop" 
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover object-top filter brightness-[0.6] contrast-[1.15]"
           style={{
             maskImage: 'linear-gradient(to bottom, black 50%, transparent 98%)',
@@ -240,6 +242,9 @@ export const Hero: React.FC = () => {
           <img 
             src={heroImg} 
             alt="Connexio Workspace Preview" 
+            width={1200}
+            height={675}
+            fetchPriority="high"
             className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.005]" 
           />
         </motion.div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://connexio.id/sitemap.xml
