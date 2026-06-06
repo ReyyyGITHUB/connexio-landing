@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ArrowRight, Globe, Apple, Download } from 'lucide-react'
 import logo from '@/assets/logo.png'
+import { DOWNLOAD_LINKS, getOSLink } from '@/constants'
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('')
@@ -21,14 +22,6 @@ export const Footer: React.FC = () => {
       case 'windows': return 'Windows'
       case 'linux': return 'Linux'
       default: return 'macOS'
-    }
-  }
-
-  const getOSLink = (osType: 'mac' | 'windows' | 'linux') => {
-    switch (osType) {
-      case 'windows': return '#download-windows'
-      case 'linux': return '#download-linux'
-      default: return '#download-mac'
     }
   }
 
@@ -118,21 +111,26 @@ export const Footer: React.FC = () => {
             </motion.a>
 
             {/* Fallback secondary options for other OSes */}
-            <div className="flex items-center gap-4 text-[10px] text-ash font-suisse mt-2">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] text-ash font-suisse mt-2">
               <span className="select-none">Or download for:</span>
-              <a href="#download-mac" className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
+              <a href={DOWNLOAD_LINKS.mac} className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
                 {getOSIcon('mac', 10)}
                 <span>macOS</span>
               </a>
               <span className="select-none text-iron/50">|</span>
-              <a href="#download-windows" className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
+              <a href={DOWNLOAD_LINKS.windows} className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
                 {getOSIcon('windows', 10)}
                 <span>Windows</span>
               </a>
               <span className="select-none text-iron/50">|</span>
-              <a href="#download-linux" className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
+              <a href={DOWNLOAD_LINKS.linuxAppImage} className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
                 {getOSIcon('linux', 10)}
-                <span>Linux</span>
+                <span>Linux (.AppImage)</span>
+              </a>
+              <span className="select-none text-iron/50">|</span>
+              <a href={DOWNLOAD_LINKS.linuxDebian} className="hover:text-pure-white transition-colors duration-150 flex items-center gap-1.5">
+                {getOSIcon('linux', 10)}
+                <span>Linux (.deb)</span>
               </a>
             </div>
           </div>

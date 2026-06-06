@@ -5,7 +5,7 @@
 **Nama Project:** Connexio - Project-based Terminal Manager  
 **Repository:** yandanp/Connexio  
 **License:** MIT  
-**Status:** Active Development (v0.2.3)  
+**Status:** Active Development (v0.5.0)  
 **Platform:** Cross-platform (Windows, macOS, Linux)  
 **Tipe:** Desktop Application (Electron)
 
@@ -307,7 +307,7 @@ git push --tags
 - **Forks:** 1
 - **Contributors:** Multiple
 - **Releases:** 5 versions
-- **Latest Version:** v0.2.3 (May 7, 2026)
+- **Latest Version:** v0.5.0 (June 6, 2026)
 - **Commit Count:** 29 commits
 - **Languages:** TypeScript, JavaScript, CSS, JSON
 
@@ -315,13 +315,14 @@ git push --tags
 
 ## 📥 DOWNLOAD & INSTALLATION
 
-### Current Version: v0.2.3
+### Current Version: v0.5.0
 
 | Platform | Format | Download Link |
 |----------|--------|---------------|
-| **Windows** | Connexio Setup.exe | GitHub Releases |
-| **macOS** | Connexio.dmg (Intel & Apple Silicon) | GitHub Releases |
-| **Linux** | Connexio.AppImage | GitHub Releases |
+| **Windows** | Connexio_0.5.0_x64-setup.exe | [Download](https://github.com/yandanp/Connexio/releases/download/v0.5.0/Connexio_0.5.0_x64-setup.exe) |
+| **macOS** | Connexio_0.5.0_aarch64.dmg | [Download](https://github.com/yandanp/Connexio/releases/download/v0.5.0/Connexio_0.5.0_aarch64.dmg) |
+| **Linux (AppImage)** | Connexio_0.5.0_amd64.AppImage | [Download](https://github.com/yandanp/Connexio/releases/download/v0.5.0/Connexio_0.5.0_amd64.AppImage) |
+| **Linux (Debian)** | Connexio_0.5.0_amd64.deb | [Download](https://github.com/yandanp/Connexio/releases/download/v0.5.0/Connexio_0.5.0_amd64.deb) |
 
 **Installation Methods:**
 1. Download dari [GitHub Releases](https://github.com/yandanp/Connexio/releases)
@@ -471,5 +472,5 @@ Potential features berdasarkan architecture:
 ---
 
 **Document Generated:** 2026  
-**Last Updated:** Based on v0.2.3 release
+**Last Updated:** Based on v0.5.0 release
 **Completeness:** ✅ Comprehensive - Includes all technical, feature, and operational information

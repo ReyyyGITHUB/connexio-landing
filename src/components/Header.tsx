@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ChevronDown, Download } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { DOWNLOAD_LINKS } from '@/constants'
 
 export const Header: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
@@ -58,7 +59,7 @@ export const Header: React.FC = () => {
             </svg>
             <span className="text-sm font-semibold tracking-tight text-pure-white font-suisse">Connexio</span>
           </a>
-          <span className="text-[10px] px-1.5 py-0.5 border border-iron/30 text-ash rounded uppercase select-none">v0.2.3</span>
+          <span className="text-[10px] px-1.5 py-0.5 border border-iron/30 text-ash rounded uppercase select-none">v0.5.0</span>
         </div>
 
         {/* Center: Nav links */}
@@ -86,7 +87,7 @@ export const Header: React.FC = () => {
                   className="absolute top-full left-1/2 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 rounded-lg transform-gpu"
                 >
                   <a 
-                    href="#download-mac" 
+                    href={DOWNLOAD_LINKS.mac} 
                     onClick={() => setDownloadOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
                   >
@@ -94,7 +95,7 @@ export const Header: React.FC = () => {
                     <span>macOS (.dmg)</span>
                   </a>
                   <a 
-                    href="#download-windows" 
+                    href={DOWNLOAD_LINKS.windows} 
                     onClick={() => setDownloadOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
                   >
@@ -102,12 +103,20 @@ export const Header: React.FC = () => {
                     <span>Windows (.exe)</span>
                   </a>
                   <a 
-                    href="#download-linux" 
+                    href={DOWNLOAD_LINKS.linuxAppImage} 
                     onClick={() => setDownloadOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
                   >
                     {linuxSvg}
                     <span>Linux (.AppImage)</span>
+                  </a>
+                  <a 
+                    href={DOWNLOAD_LINKS.linuxDebian} 
+                    onClick={() => setDownloadOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 text-[10px] text-fog hover:text-pure-white hover:bg-graphite transition-colors duration-150 ease-premium"
+                  >
+                    {linuxSvg}
+                    <span>Linux (.deb)</span>
                   </a>
                 </motion.div>
               )}

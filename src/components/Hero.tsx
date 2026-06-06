@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import heroImg from '@/assets/hero.webp'
+import heroImg from '@/assets/hero.png'
 import mountainBg from '@/assets/mountain_bg.webp'
+import { DOWNLOAD_LINKS, getOSLink } from '@/constants'
 
 export const Hero: React.FC = () => {
   const [downloadOpen, setDownloadOpen] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
   const [detectedOS, setDetectedOS] = useState<'mac' | 'windows' | 'linux'>('mac')
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -154,35 +156,51 @@ export const Hero: React.FC = () => {
             <span className="text-ash text-xs uppercase font-mono">03 / Get Started</span>
             <div className="flex flex-wrap gap-3 relative z-20">
               <div ref={dropdownRef} className="relative">
-                <div className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden transition-transform duration-200 active:scale-[0.98] rounded-full">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: '0 10px 30px rgba(0, 145, 255, 0.15)',
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  className="inline-flex items-center bg-pure-white text-obsidian border border-pure-white overflow-hidden rounded-full transform-gpu"
+                >
                   <a
-                    href={`#download-${detectedOS}`}
-                    className="flex items-center gap-2 text-xs font-semibold pl-5 pr-3 py-2.5 hover:bg-cloud transition-colors duration-150 border-r border-obsidian/10"
+                    href={getOSLink(detectedOS)}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className="flex items-center gap-2 text-xs font-semibold pl-5 pr-3 py-2.5 hover:bg-cloud transition-colors duration-200 ease-premium border-r border-obsidian/10"
                   >
                     {getOSLogo(detectedOS)}
                     <span>Download for {getOSLabel(detectedOS)}</span>
-                    <span className="text-sm font-normal">↓</span>
+                    <motion.span 
+                      animate={isHovered ? { y: [0, 3, -1, 0] } : {}}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      className="text-sm font-normal inline-block"
+                    >
+                      ↓
+                    </motion.span>
                   </a>
                   <button
                     onClick={() => setDownloadOpen(!downloadOpen)}
-                    className="px-2.5 py-2.5 hover:bg-cloud transition-colors duration-150 flex items-center justify-center"
+                    className="px-2.5 py-2.5 hover:bg-cloud transition-colors duration-200 ease-premium flex items-center justify-center"
                     aria-label="Select OS"
                   >
-                    <ChevronDown size={14} className={`transition-transform duration-200 ${downloadOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown size={14} className={`transition-transform duration-200 ease-premium ${downloadOpen ? 'rotate-180' : ''}`} />
                   </button>
-                </div>
+                </motion.div>
 
                 <AnimatePresence>
                   {downloadOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      initial={{ opacity: 0, y: 12, scale: 0.97 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                      transition={{ duration: 0.15 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                      transition={{ type: 'spring', stiffness: 420, damping: 24 }}
                       className="absolute top-full left-0 mt-2 w-48 bg-charcoal border border-iron/20 p-2 shadow-2xl flex flex-col gap-1 z-50 text-left rounded-2xl"
                     >
                       <a
-                        href="#download-mac"
+                        href={DOWNLOAD_LINKS.mac}
                         onClick={() => setDownloadOpen(false)}
                         className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
@@ -190,7 +208,7 @@ export const Hero: React.FC = () => {
                         <span>macOS (.dmg)</span>
                       </a>
                       <a
-                        href="#download-windows"
+                        href={DOWNLOAD_LINKS.windows}
                         onClick={() => setDownloadOpen(false)}
                         className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
@@ -198,12 +216,20 @@ export const Hero: React.FC = () => {
                         <span>Windows (.exe)</span>
                       </a>
                       <a
-                        href="#download-linux"
+                        href={DOWNLOAD_LINKS.linuxAppImage}
                         onClick={() => setDownloadOpen(false)}
                         className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
                       >
                         {linuxSvg}
                         <span>Linux (.AppImage)</span>
+                      </a>
+                      <a
+                        href={DOWNLOAD_LINKS.linuxDebian}
+                        onClick={() => setDownloadOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-xs font-semibold text-fog hover:text-pure-white hover:bg-graphite rounded-xl transition-colors duration-150"
+                      >
+                        {linuxSvg}
+                        <span>Linux (.deb)</span>
                       </a>
                     </motion.div>
                   )}
@@ -225,29 +251,34 @@ export const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Sharp-edged Widescreen Mockup Container */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-16 w-full rounded-none border border-iron/20 bg-charcoal/50 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden group relative"
-        >
-          {/* Subtle top indicator bar */}
-          <div className="w-full h-8 border-b border-iron/20 bg-obsidian/40 flex items-center px-4 justify-between select-none">
-            <span className="text-[10px] text-ash tracking-widest font-mono">Active Workspace</span>
-            <div className="flex gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-iron/40" />
-              <span className="w-2 h-2 rounded-full bg-iron/40" />
-              <span className="w-2 h-2 rounded-full bg-iron/40" />
+        {/* Widescreen Mockup Container with Depth & Glow */}
+        <div className="relative w-full mt-16 group">
+          {/* Ambient background glow */}
+          <div className="absolute -inset-4 bg-gradient-to-tr from-[#0091ff]/15 via-transparent to-[#0091ff]/5 rounded-2xl blur-3xl opacity-60 transition duration-1000 group-hover:opacity-85 pointer-events-none" />
+          
+          <motion.div
+            variants={itemVariants}
+            className="relative w-full rounded-xl border border-white/10 bg-charcoal/50 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_12px_24px_-8px_rgba(0,0,0,0.6),0_32px_64px_-12px_rgba(0,0,0,0.9)] overflow-hidden"
+          >
+            {/* Subtle top indicator bar */}
+            <div className="w-full h-8 border-b border-white/10 bg-obsidian/40 flex items-center px-4 justify-between select-none">
+              <span className="text-[10px] text-ash tracking-widest font-mono">Active Workspace</span>
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-iron/40" />
+                <span className="w-2 h-2 rounded-full bg-iron/40" />
+                <span className="w-2 h-2 rounded-full bg-iron/40" />
+              </div>
             </div>
-          </div>
-          <img 
-            src={heroImg} 
-            alt="Connexio Workspace Preview" 
-            width={1200}
-            height={675}
-            fetchPriority="high"
-            className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.005]" 
-          />
-        </motion.div>
+            <img 
+              src={heroImg} 
+              alt="Connexio Workspace Preview" 
+              width={1024}
+              height={522}
+              fetchPriority="high"
+              className="w-full h-auto select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.005]" 
+            />
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   )
