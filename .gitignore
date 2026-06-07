@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local agent & test artifacts
+.agents/
+test-screenshots/
+playwright-test.js
+
