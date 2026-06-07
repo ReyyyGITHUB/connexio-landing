@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
               alt="Connexio App Icon" 
               className="w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain rounded-xl sm:rounded-2xl flex-shrink-0"
             />
-            <h1 className="text-6xl sm:text-8xl md:text-[7.5rem] font-bold tracking-tighter leading-[0.85] uppercase text-left">
+            <h1 className="text-4xl min-[380px]:text-5xl sm:text-8xl md:text-[7.5rem] font-bold tracking-tighter leading-[0.85] uppercase text-left">
               <span className="text-shine block">Connexio.</span>
             </h1>
           </motion.div>

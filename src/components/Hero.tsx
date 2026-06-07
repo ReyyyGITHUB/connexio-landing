@@ -136,17 +136,17 @@ export const Hero: React.FC = () => {
         </motion.h1>
 
         {/* Info Grid Division */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-iron/20 font-suisse select-none">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 pt-8 border-t border-iron/20 font-suisse select-none">
           <motion.div variants={itemVariants} className="flex flex-col gap-2">
-            <span className="text-ash text-xs uppercase font-mono">01 / Persistence</span>
-            <p className="text-sm text-fog leading-[1.5] max-w-xs font-normal">
+            <span className="text-ash text-[10px] md:text-xs uppercase font-mono">01 / Persistence</span>
+            <p className="text-xs md:text-sm text-fog leading-[1.5] max-w-xs font-normal">
               Tabs, layout environments, and directory sessions survive application restarts automatically.
             </p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex flex-col gap-2">
-            <span className="text-ash text-xs uppercase font-mono">02 / Automation</span>
-            <p className="text-sm text-fog leading-[1.5] max-w-xs font-normal">
+            <span className="text-ash text-[10px] md:text-xs uppercase font-mono">02 / Automation</span>
+            <p className="text-xs md:text-sm text-fog leading-[1.5] max-w-xs font-normal">
               Auto-detects scripts from package.json, Makefile, Cargo.toml, pyproject.toml with single-click runner.
             </p>
           </motion.div>

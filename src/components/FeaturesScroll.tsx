@@ -74,6 +74,7 @@ export const FeaturesScroll: React.FC = () => {
   const targetRef = useRef<HTMLDivElement>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [scrollRange, setScrollRange] = React.useState(0)
+  const [activeIndex, setActiveIndex] = React.useState(0)
 
   // Measure dynamic scroll range based on card contents
   React.useEffect(() => {
@@ -100,6 +101,31 @@ export const FeaturesScroll: React.FC = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef
   })
+
+  // Track scroll position to update active step index
+  React.useEffect(() => {
+    return scrollYProgress.on("change", (latest) => {
+      const index = Math.min(Math.floor(latest * features.length), features.length - 1)
+      setActiveIndex(index)
+    })
+  }, [scrollYProgress])
+
+  // Click handler to smooth scroll to specific features
+  const scrollToFeature = (index: number) => {
+    if (targetRef.current) {
+      const element = targetRef.current
+      const offsetTop = element.offsetTop
+      const totalHeight = element.scrollHeight
+      const viewportHeight = window.innerHeight
+      const scrollableHeight = totalHeight - viewportHeight
+      const targetScrollY = offsetTop + (index / (features.length - 1)) * scrollableHeight
+      
+      window.scrollTo({
+        top: targetScrollY,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   // Tighter physics-based spring for premium, responsive feedback
   const smoothProgress = useSpring(scrollYProgress, {
@@ -129,10 +155,40 @@ export const FeaturesScroll: React.FC = () => {
       {/* Sticky container matching viewport height */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden z-10">
         <div className="max-w-[1440px] mx-auto px-6 w-full mb-6">
-          <span className="text-xs font-semibold tracking-widest text-[#0091ff]">FEATURES</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pure-white mt-2 uppercase font-suisse">
-            Built for high-performance terminal workflows.
-          </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-iron/10 pb-6">
+            <div className="max-w-2xl">
+              <span className="text-xs font-semibold tracking-widest text-[#0091ff]">FEATURES</span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pure-white mt-2 uppercase font-suisse">
+                Built for high-performance terminal workflows.
+              </h2>
+            </div>
+            
+            {/* Premium Progress Stepper */}
+            <div className="flex flex-col w-full md:w-80 font-mono">
+              <div className="flex justify-between items-center text-xs mb-3">
+                {features.map((feature, idx) => (
+                  <button
+                    key={feature.id}
+                    onClick={() => scrollToFeature(idx)}
+                    className={`transition-all duration-300 font-bold focus:outline-none relative group/btn ${
+                      activeIndex === idx 
+                        ? 'text-[#0091ff] scale-110' 
+                        : 'text-ash/50 hover:text-ash'
+                    }`}
+                  >
+                    {(idx + 1).toString().padStart(2, '0')}
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#0091ff] rounded-full scale-0 group-hover/btn:scale-100 transition-transform duration-200" />
+                  </button>
+                ))}
+              </div>
+              <div className="h-[2px] w-full bg-iron/10 relative overflow-hidden">
+                <motion.div
+                  style={{ scaleX: scrollYProgress, transformOrigin: 'left' }}
+                  className="absolute inset-y-0 left-0 right-0 bg-[#0091ff] shadow-[0_0_8px_rgba(0,145,255,0.4)]"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Horizontal scroll track with brutalist borders */}
