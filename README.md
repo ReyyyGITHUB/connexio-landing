@@ -2,7 +2,7 @@
 
 > Official, high-performance landing page for **Connexio** — the cross-platform project-based terminal manager for developers.
 
-![Hero Showcase](src/assets/hero.png)
+![Hero Showcase](src/assets/Screenshot%202026-06-14%20093535.png)
 
 This repository contains the marketing site and download portal for Connexio. Built using **React 19**, **Vite**, and **Tailwind CSS v4**, the site features immersive animations and smooth scroll interactions.
 
